@@ -1,0 +1,258 @@
+@import url(https://db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=Beaufort+for+LOL+Bold);
+@import url(https://db.onlinewebfonts.com/c/5860819ba2d3f62044523a9a4683a21a?family=SpiegelSans+Trial+Bold);
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/*    font-family: "Beaufort for LOL Bold";
+      font-family: "SpiegelSans Trial Bold"; 
+      font-family: 'Contrail One', cursive;
+      font-family: 'Ubuntu', sans-serif;
+*/
+
+:root{
+    margin: 0; padding: 0;
+    background-image: url(./resources/background.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-weight: 400;
+    font-family: "Beaufort for LOL Bold";
+    font-size: 62.5%;
+    color: azure;
+    text-transform: uppercase;
+}
+
+#logo{
+    display:flex;
+    height: 80px;
+    padding-block: 3em;
+
+}
+#logo:hover{
+    transform: scale(1.5,1.5);
+    transition: all 0.3s ease-in;
+}
+
+nav{
+    display:flex;
+    justify-content: space-around;
+    min-width: 500px;
+}
+
+.box{
+    display:flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+nav>h2{
+    align-self: center;
+    font-size: 350%;
+    text-shadow:  rgb(37, 61, 157) 4px 4px 5px;
+}
+nav>h2:hover{
+    transform: scale(1.1,1.1);
+    transition: all 3s ease-in-out;
+}
+
+li{
+    font-size: 1.5rem;
+    padding: 1rem;
+    font-family: "SpiegelSans";
+
+}
+
+li>a:link{
+    color: rgba(243, 212, 36, 0.893);
+    text-decoration: none;
+    border: 0.1rem solid rgba(72, 206, 236, 0.589);
+    padding: 0.5rem 2rem;
+
+}
+li>a:hover{
+    background-color: rgba(57, 46, 174, 0.318);
+    border-radius: 30%;
+    border: 0.2rem solid rgba(233, 167, 0, 0.887);
+}
+li>a:active{
+    background-color:goldenrod;
+    color: black;
+}
+a:visited{
+    color:goldenrod;    
+}
+
+main>h1{
+    font-size: 6rem;
+    font-family: "SpiegelSans";
+    text-shadow: rgb(12, 11, 8) 1px 0 5px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.492);
+    border-radius: 5%;
+    border-inline: rgb(255, 255, 255);
+    margin-top: -0.5px;
+}
+
+/*aca creamos la grilla para los contenidos*/
+
+.container{ /* contiene todas las cartas - mostramos en 3 columnas*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(450px,0.5fr)); /*ocupa un min de 450px */
+    row-gap: 10vh; 
+    justify-items: center; /*hace que las columnas se ajusten hacia el medio*/
+}
+
+/* a cada carta le asignamos un tamaño fijo */
+.card{ /*este sera el MARCO de los contenidos de la carta*/
+    height: 600px;
+    width: 350px;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25% 1fr 1fr 1fr;
+}
+/* creamos el contenido de la carta del lado del frente */
+.frontcard{ 
+    background-color: hwb(269 1% 85% / 0.279);
+    border: 2px solid rgba(28, 2, 98, 0.703);
+    display:grid;  /* le ordenamos un maquetado grid */
+    grid-template-rows: 25% 1fr 1fr 1fr; /* y contiene 4 filas divididas en partes iguales*/
+    border-radius: 15%;
+    z-index: 3;
+}
+.frontcard>div{ /*este div contiene la info de arriba*/
+    display:flex; /*le indicamos un display:flex para poder alinear su contenido*/
+    align-items: center;
+    justify-content: right;
+    grid-row: 1; /* lo ubicamos en la fila 1*/
+    grid-column: 1;
+    transform: translateX(-15px);
+    transition-delay: 2s;
+    transition: all 1.5s ease-out;
+}
+.frontcard>div>img{ /*alineamos la imagen dentro del div anterior*/
+    margin: 3rem 2rem;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 30%;
+    background-color: azure;
+}
+.frontcard-imagen{ /*este es el contenedor de la imagen que irá en el fondo de la carta*/
+    grid-row: 1;
+    grid-column:1;
+    z-index: -1; /* lo mandamos al fondo para que no se superponga con el contenido */
+    align-items: center;
+}
+.frontcard-imagen>img{ /* esta es la imagen del fondo de la carta */ 
+    height: 600px; /* le damos el alto y el ancho igual al contenedor del contenido (.card) */
+    width: 350px;
+    border-radius: 15%;
+}
+.frontcard>h1{ /*este sera el nombre del personaje*/
+    grid-row: 4; /*lo ubicamos en la fila 4*/
+    grid-column: 1;
+    color:rgba(249, 187, 1, 0.857);
+    font-size: 6rem;
+    text-shadow: rgba(8, 43, 179, 0.892) 4px 4px 10px;
+    align-self: center; /*para centrarlo en la col del grid usamos estas dos propiedades*/
+    justify-self: center;
+}
+h2{
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: black 4px 4px 5px;
+}
+/*creamos la animacion para la caja - para mostrar el lado de atras*/
+.frontcard:hover{
+    transform: translateY(100px);
+    transition: all 0.5s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    opacity: 0;
+}
+.frontcard:not(:hover){
+    transition: all 1s ease-in-out;
+}
+
+/*editamos la parte de atras*/
+.backcard{
+    background-color: hwb(269 1% 85% / 0.279);
+    border: 2px solid black;
+    height:600px;
+    width:350px;
+    border-radius: 15%;
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8,1fr);
+    justify-items: center;
+}
+.backcard>h2{
+    font-size: 3.5rem;
+}
+.rol{
+    grid-column: 3;
+    grid-row: 2;
+}
+.difficulty{
+    grid-column: 1/6;
+    grid-row:5/6;
+}
+h3{
+    font-size: 2rem;
+    grid-column: 2/5;
+    grid-row: 3;
+    text-transform: capitalize;
+    color:aqua;
+    font-family: "Beaufort for LOL Bold";
+    text-shadow: #070c4a 2px 2px 5px;;
+}
+.difficulty-level{
+    grid-column: 2/5;
+    grid-row: 6;
+    width: 25rem;
+    display: flex;
+}
+.cajita{
+    border: 2px solid rgba(52, 249, 242, 0.482);
+    transform: skewX(-30deg);
+    height: 3rem;
+    width: 8rem;
+    box-shadow: #2ef8eb 4px 2px 10px;
+}
+.level1{
+    background: linear-gradient(90deg,#251F47,#4bc0dacd)
+}
+.level2{
+    background: linear-gradient(60deg,#251F47,#4bc0dacd)
+}
+.level3{
+    background: linear-gradient(30deg,#251F47,#4bc0dacd)
+}
+.frontcard, .backcard{
+    grid-row: 1/4;
+    grid-column: 1/4; 
+}
+#flecha-box{
+    grid-column:3;
+    justify-self: right;
+    position:fixed;
+    bottom: 12%;
+}
+#flecha{
+    width:50px;
+}
+
+footer{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    justify-content:center;
+    margin-top: 100px
+}
+
+footer>:nth-child(2){
+    text-align: right;
+}
+footer>:nth-child(2)::after{
+    content:"  ©"; 
+}
