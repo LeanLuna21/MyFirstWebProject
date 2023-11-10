@@ -6,3 +6,5 @@ The challenge in the course was not to use Bootstrap but to build the whole webs
 You will also find animations in the titles, images, and logos, and there are also shortcut links to go to the different sections of the site, as well as to go back to the beginning. 
 
 This took about ten days to build since I can't devote myself 24/7 to coding. Nonetheless, I'm absolutely delighted with the result! Let's go!
+
+You can access the website via this link: https://lol-champions-starter-pack.netlify.app/
